@@ -1,0 +1,625 @@
+
+0,3,8,16,31
+0,2,5,22,27
+0,2,8,17,28
+0,2,8,17,27
+0,8,22,40,52
+0,2,8,17,24
+0,2,8,14,21,
+0,4,11,34,49
+100,0,41,90,135
+0,3,17,26,31
+0,3,17,26,31
+0,2,21,43,159
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- begin quiz script -->
+<script>
+function finish() {
+	var ext = '.html';
+	var results = new Array("none","Elite","Platinum","Gold","Credit_Builder","Approved","Deal_Maker");
+	var nums = new Array(7);
+	for(var i = 0; i < nums.length; i++) nums[i] = 0;
+	for(var i = 1; i <= 12; i++) {
+		var q = document.forms['quiz'].elements['question_'+i];
+		if(q[0].type=='checkbox') {
+			var n = 0;
+		}
+		for(var j = 0; j < q.length; j++) {
+			if(q[j].checked) {
+				var a = q[j].value.split(',');
+				for(var k = 0; k < a.length; k++) {
+					nums[a[k]]++;
+				}
+				if(q[j].type=='radio') break;
+				else n++;
+			}
+			if(j == q.length-1&&q[j].type=='radio') {nums[0]++;}
+		}
+		if(q[0].type=='checkbox'&&((document.forms['quiz'].elements['question_'+i+'_min']&&n<document.forms['quiz'].elements['question_'+i+'_min'].value)||(document.forms['quiz'].elements['question_'+i+'_max']&&n>document.forms['quiz'].elements['question_'+i+'_max'].value))) nums[0]++;
+	}
+	var j = new Array('0');
+	for (i in nums) if(nums[i]>nums[j[0]]){j=new Array(''+i);} else if(nums[i]==nums[j[0]])j[j.length] = i;
+	//var o = '';for(var i in results)o+=results[i]+'='+nums[i]+'\n';
+	//alert(o);
+	if(nums[0]!=0) {
+		alert('You missed or incorrectly answered '+nums[0]+' questions!');
+	}
+	else if(j[0]==0) {
+		alert('No result could be determined.');
+	}
+	else {
+		location = results[j[0]]+ext;
+	}
+}
+</script>
+<!-- end quiz script -->          
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<!-- begin quiz html -->
+<form name="quiz" action="javascript:finish();">
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>What is your current living situation?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_1" type="radio" value="6"> I live with friends
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_1" type="radio" value="5"> I live with family other than my parents
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_1" type="radio" value="4"> I live with my parents
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_1" type="radio" value="3"> I am renting
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_1" type="radio" value="2"> I am leasing
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_1" type="radio" value="1"> I am buying or own my home
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>How long have you lived at your current address?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_2" type="radio" value="6"> I just moved in
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_2" type="radio" value="5"> 6 months or less
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_2" type="radio" value="4"> More than 6 months but less than 1 year
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_2" type="radio" value="3"> More than 1 year but less than 3 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_2" type="radio" value="2"> More than 3 years but less than 5 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_2" type="radio" value="1"> More than 5 years
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>How many times have you moved in the last 3 years?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_3" type="radio" value="6"> 5 times or more
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_3" type="radio" value="5"> 4
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_3" type="radio" value="4"> 3
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_3" type="radio" value="3"> 2
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_3" type="radio" value="2"> 1
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_3" type="radio" value="1"> 0
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>How long have you lived in Oklahoma since turning 18?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_4" type="radio" value="1"> More than 15 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_4" type="radio" value="6"> Less than 6 months
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_4" type="radio" value="5"> More than 6 months but less than 1 year
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_4" type="radio" value="4"> More than 1 year but less than 3 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_4" type="radio" value="3"> More than 3 years but less than 9 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_4" type="radio" value="2"> More than 10 years but less than 15 years
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>How long have you worked in your current field?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_5" type="radio" value="6"> I am on SSI or disability
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_5" type="radio" value="5"> Less than 6 months
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_5" type="radio" value="4"> More than 6 months but less than 1 year
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_5" type="radio" value="3"> More than 1 year but less than 3 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_5" type="radio" value="2"> More than 3 years but less than 5 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_5" type="radio" value="1"> More than 5 years
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>How many times have you changed jobs in the last 2 years?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_6" type="radio" value="6"> I am on SSI or disability
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_6" type="radio" value="5"> 4 times or more
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_6" type="radio" value="4"> 3 times
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_6" type="radio" value="3"> 2 times
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_6" type="radio" value="2"> 1 time
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_6" type="radio" value="1"> None
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>What kind of work do you do?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_7" type="radio" value="6"> Restaurant, retail, hotel or other customer service industry (other than management)
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_7" type="radio" value="5"> Retired
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_7" type="radio" value="4"> Construction or manual labor
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_7" type="radio" value=""> SSI or disability
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_7" type="radio" value="2"> Specially trained/licensed or other skilled position
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_7" type="radio" value="1"> Manager or business owner
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>How much do you make a month AFTER taxes?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_8" type="radio" value="6"> Less than 00
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_8" type="radio" value="5"> More than 00 but less than 00
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_8" type="radio" value="4"> More than 00 but less than 00
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_8" type="radio" value="3"> More than 00 but less than 00
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_8" type="radio" value="2"> More than 00 but less than 00
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_8" type="radio" value="1"> More than 00
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>How many vehicles have you financed? (Do not include any reposessions</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_9" type="radio" value="6"> None
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_9" type="radio" value="5"> 1
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_9" type="radio" value="4"> 1 with Express Credit Auto
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_9" type="radio" value="3"> 2
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_9" type="radio" value="2"> 2 with Express Credit Auto
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_9" type="radio" value="1"> 3 or more
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>How many vehicles have you had repossesed in the last 3 years?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_10" type="radio" value="6"> I've never financed a car
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_10" type="radio" value="5"> 4 or more
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_10" type="radio" value="4"> 3
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_10" type="radio" value="3"> 2
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_10" type="radio" value="2"> 1
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_10" type="radio" value="1"> I've never had a vehicle repossesed
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>How long has it been since you first financed anything or applied for a credit card?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_11" type="radio" value="6"> I've never financed anything before
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_11" type="radio" value="5"> Less than 2 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_11" type="radio" value="4"> More than 3 years but less than 5 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_11" type="radio" value="3"> More than 6 years but less than 10 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_11" type="radio" value="2"> More than 11 years but less than 20 years
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_11" type="radio" value="1"> More than 20 years
+</font>
+</td>
+</tr>
+</table>
+<br /><table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+<td width="34%">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<strong>What is your credit score?</strong> 
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_12" type="radio" value="6"> I have no credit
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_12" type="radio" value="5"> Under 425
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_12" type="radio" value="4"> Above 425 but under 475
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_12" type="radio" value="3"> Above 475 but under 525
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_12" type="radio" value="2"> Above 525 but under 650
+</font>
+</td>
+</tr><tr>
+<td>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+<input name="question_12" type="radio" value="1"> Above 650
+</font>
+</td>
+</tr>
+</table>
+<br /> <INPUT TYPE="submit" value="Finish">
+ <INPUT TYPE="reset" value="Reset">
+</form>
+<!-- end quiz html -->          
+</body>
+</html>

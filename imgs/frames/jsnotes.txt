@@ -1,0 +1,738 @@
+
+alert("Hello, world!");
+
+*creating variables*
+
+var year="definition";
+
+*creating conditional code*
+if ( condition ) {
+	code to execute goes here...
+	} else {
+		otherwise, different code
+		}
+	
+	( if must evaluate as true or false
+	( < or > for greater or less than
+	( == check if quality or variable is equal to
+	( = sets a command does not check value
+	( != checks if variable is not equal to
+	
+	Multiple if else statements may be nested inside each other but best practice is not to put many
+		
+
+*example of if with variable*
+	
+var amount = 500;
+
+if(amount<1000) {
+	alert("It's less than 1000");
+	}
+
+*operators and expressions*
+	Arithmetic operators =  +,-,*,/
+	
+	= is formally called Assignment operator and is a command to used to set a value. This statement execute on the right to assign the value to what is on the left of = 
+
+	Arithmatic operators can be used to add a value to a variable ie. score = score + 10;
+        Shorthand is score += 10; 
+	Shorthand can be used with any arithmatic operator.
+	Multiplication and division take Operator Precedence over others (follows order of operations)
+	Parenthesis can be used to alter order like in math.
+
+	Equality is double equal sign not single (==)
+
+	Strict Equality operator is triple equal sign (===) and requires the value to be exactly equal. 	ie (a==a)true (a==="a")false.
+
+	To check for equal to if(a==b)
+	To check not equal to if(a!=b)
+	To check strictly equal to if(a===b)
+	To check no strictly equal to if(a!==b)
+	To check greater than if(a>b)
+	To check less than if(a<b)
+	To check greater than or equal to (a>=b)
+	to check less than or equal to (a<=b)
+
+	To check for multiple conditions (&&) is and / and (||) is or
+	   
+	Conditions may be written on separate lines to make easier to read.
+		ie: if(a===b && c===d){...} may be written as,
+		    if(
+			(a===b)
+			  &&
+			(c>d)  ){...}
+
+	Modulus or remainder operators
+
+	
+	
+	var year=2003;
+	var remainder= year % 4; // remainder would be 3
+
+	Increment/Decrement
+
+	a = a + 1; longway
+	a += 1; shorthand
+	a++; uniry operator (only needs one thing) can be written as ++a;
+
+	Prefix/Postfix
+
+	var a=5;
+	alert(++a); will bring up alert of 6
+	alert(a++); will bring up alert of 5
+
+	Ternary
+	
+	condition ? true : false
+
+	ie: 
+	   var playerOne=500;
+	   var playerTwo=600;
+
+	var highScore;
+	
+
+	   if (playerOne > playerTwo) {
+		highScore = playerOne;
+		}
+	   else { highScore= playerTwo;
+		}
+
+		can be written as
+	
+	var highScore = (playerOne > playerTwo) ? playerOne : playerTwo ;
+
+ 
+           
+	
+	console.log can be used in debuggers in place of alert to test if alert is working without popping up for end user.
+
+	console.info gives blue I in log
+	console.error gives red X in log
+	console.warn gives yellow ! in log
+
+*Working with loops or iteration*
+
+	
+
+	Infinite Loop: replace "if" with "while" this script will continuosly run and will never end.
+
+	var a = 1;
+	while (a < 10 ) {
+		console.log(a);
+	}
+
+	This loop can be ended by adding "a++" right after console.log command.	
+
+	Do While Loop: while goes at end of block and this block will always be executed at least once regardless if while condition is true.  While loops are more common than Do while
+	
+	var a = 1;
+	do {
+		console.log(a);
+		a++;
+	} while (a < 10);
+
+	All loops need.
+
+	 1.Set up the index
+	   var 1 = 1;
+
+		2. check the condition
+	   while ( i < 10 ) {
+		// do stuff
+		// do stuff 
+		// do stuff
+		// etc..
+		i++;		3. Increment the index
+	   }
+
+	For Loop used as short hand. Written as:
+
+	for (1.Set up the index ; 2.Check condition ; 3.Increment the index) {}
+	  
+	  for ( var i = 1 ; i < 10 ; i++ ) {
+		//do stuff
+		//do stuff
+		//do stuff
+		//etc.
+	   }
+
+	Break is used to jump out of the loop when condition is true. Written as:
+	
+	  for ( var i = 1 ; i < 10 ; i++ ) {
+		//do stuff
+		//do stuff
+		//do stuff
+		
+              if (i == 101) {
+		 break;
+		}
+		 //do stuff
+	   } 
+		// break jumps out of the loop when if statement is true.
+
+	
+	Continue is used to move back up to the top of loop if condition is true.  Written as:
+	
+	  for ( var i = 1 ; i < 5000 ; i++ ){
+		//do stuff
+		//do stuff
+		if (i % 5 == 0){
+		   continue; //done with this iteration
+		}
+		// do second set of stuff
+		// do second set of stuff
+	     }
+
+Functions in JavaScript break apart large amount of JS into module pieces
+
+	Functions are written or defined as:
+
+		function anyName (){
+			console.log("We're in the function");
+			// loops, if statments, anything!
+			//..
+			}
+
+		
+	Functions will not run unless called for.  They are called by using the name assigned in the function.  
+
+	ie:
+		anyName ();
+		anyName ();
+
+	FUnctions can be declared anywhere, but best practice is to define functions before calling.
+
+	Functions can be defined with parameters written as so
+
+		function functionName ( parameters, multiple separated with commas ) {
+			
+			}
+
+		Example function with parameters:
+		
+		function myFunction ( x,y ) {
+
+			var myVar = x * y;
+			console.log(myVar);
+			//can return values
+
+			return myVar;
+
+		}
+
+		
+		// can be called later like:
+		
+			myFunction(754,346);
+			myFunction(123,-732);
+			alert("hello world");
+
+		var myresult = myFunction(6,9);
+
+	Parameter Mismatch Examples:
+
+		function calculateLoan (amount, months, interest, name) {
+			//lots of code
+		}
+
+		calculateLoan(10000,60, 7, "Sam Jones"); //correct
+		calculateLoan(10000, 60, 7, "Sam Jones", "something extra"); //extras are ignored
+		calculateLoan(10000, 60); //missing are passed as "undefined"
+
+	Variable Scope only applies to functions, and means variables defined in function are only recognized in that function.  Example:
+
+		function simpleFunction(){
+			// lots of code
+			var foo = 500;
+			// lots of code
+			console.log (foo);
+		}
+
+
+		simpleFunction();
+		console.log (foo); //will be undefined because the variable is only a local variable so it only exists inside function.
+
+		In order to use variable outside of function it would need to be defined globally outside of the function.  Above function would be written as:
+
+		var foo;
+
+		function simpleFunction(){
+			// lots of code
+			foo = 500;
+			// lots of code
+			console.log (foo);
+		}
+
+		simpleFunction();
+		console.log (foo); 500
+
+Creating Arrays
+
+	Array is a single variable that holds multiple values. Example
+
+		var multipleValues= [] ; //This line creates a single variable that can hold multiple values.  Example:
+
+		multipleValues[0] = 50;
+		multipleValues[1] = 60;
+		multipleValues[2] = "mouse";
+
+			//can take a number, string, boolean or any data, but are accessed through [] which is index, JS uses zero-based so 0=1 1=2 2=3 etc..
+
+	In order to get to contents just call it example:
+
+		console.log(multipleValues[2]);  this would return "mouse"
+
+
+	Array Shorthand is written as:
+
+		var multipleValues = [50, 60, "Mouse"];
+  
+		Called as             [0] [1]  [2]   //always zero based
+
+
+
+
+	Other ways to create arrays
+
+		var multipleValues=[];//most straightforward way
+		var multipleValues= new Array(); //arrays are objects
+		var multipleValues= Array();
+		var multipleValues= Array (5);	
+
+	Array Properties
+		var multipleVaules=[10,20,30,40,50];
+		
+		console.log(multipleValues.length); length is 5
+						    Highest index is 4
+
+
+		
+
+	Array Methods Because are arrays are objects they have methods.
+
+		someFunction(params); //to call a function
+
+              
+	//methods are functions that belong to an object
+		someObject.someMethod(); // to call a method
+
+	Example:
+		var multipleValues = [10,20,30,40,50];
+		var reversedValues = multipleValues.reverse();
+						   .join();
+						   .sort();
+
+		console.log( reversedValues.join() );  //"50,40,30,20,10"
+
+	Arrays are everywhere in JavaScript
+
+
+Working with Numbers
+	JavaScript numbers are 64-bit floating point numbers.
+
+	var foo= 5;
+	var bar= 5'
+	console.log(foo + bar); // will return 10 Javascript views as addition
+
+	var foo= "5";
+	var bar= "5";
+	console.log(foo + bar); // will return 55, Javascript views strings as concatenation
+
+	var foo = 5;
+	var bar = "b";
+	console.log(foo * bar); //will return NaN (Not a Number)
+	
+
+	Math object
+	
+		var x = 200.6;
+		var y = Math.round(x); //will round a number
+			Math.max(a,b,c); // will grab largest value
+			Math.min(a,b,c); // will grab smallest value
+			Math.PI
+			Math.random
+			Math.sqrt
+			Math.log
+
+Strings
+
+	Strings can be treated as objects and have properties that can be looked at.
+
+		var phrase="this is a simple phrase.";
+		console.log(phrase.length); //will return 24
+	
+
+	Strings can also have methods
+
+		var phrase = "This is a simple phrase.";
+		console.log( phrase.toUpperCase() ); // will return "THIS IS A SIMPLE PHRASE."
+
+				   .toLowerCase("")
+				   .split (" "); //will create an array from string array of words
+                                            |  
+					//will split at space, 
+
+	Indexof Method
+		
+		var phrase ="We want a groovy keyword.";
+		var position = phrase.indexOf("groovy");// will return the value of where the term 							   begins here would be 10, this is based onthe                                                            character number, if at beginning it would 							   be 0 will return -1 if not found. Shows only 							   first occurence  .lastIndexOf will call last
+
+	Slice Method
+
+		var pharase="Yet another phrase."
+		var segment = phrase.slice(6,11);  //will return values 6 through 11 without changing 						     string
+
+				    .substring(start,end)
+	
+				    .substr(start,length)
+
+
+	String comparisons can be used but they are case sensitive
+
+
+Working with dates
+
+	var today = new Date() // current date and time
+
+		written as year,month, day with month being a zero index.  Jan 1 2001 written as 		var y2k = new Date(2000,0,1)
+ 
+		can also be written as year,month,day,hours,minutes,seconds
+		var y2k = new Date(2000,0,1,0,0,0);
+
+
+	Methods can be used to get the date of object
+
+		var today = new Date()
+		today.getMonth() //returns 0-11
+		today.getFullYear(); //returns YYYY (not zero-based)
+		today.getYear(); // do not use
+		today.getDate(); // 1-31 day of month
+		today.getDay(); // returns 0-6 day of week. 0 == Sunday
+		today.getHours(); // 0-23
+		today.getTime(); // milliseconds since 1/1/1970
+
+	Methods can also be used to set the date
+		var today = new Date();
+		today.setMonth (5);
+		today.setFullYear(2012);
+		today.setDay(0);
+
+	Methods can compare dates
+		var date1= new Date(2000, 0, 1);
+		var date2= new Date(2000, 0, 1);
+
+		if ( date1 == date2 ) {..//false!
+		}
+
+		if ( date1.getTime() == date2.getTime() ) {... 949388400000 == 949388400000 // true!}
+
+
+Objects in JavaScript
+
+		Objects allows us to gather variables and functions that belong together and give them 		a name
+
+	Creating an object
+
+		var playerName = "Fred";
+		var playerScore = 10000;
+		var playerRank = 1;
+
+		var player = new Object();
+		player.name = "Fred";
+		player.score = 10000;
+		player.rank = 1;
+
+	Creating an object shorthand
+		
+		var player1 = { name: "Fred", score: 10000, rank:1};
+		var player2 = { name: "Sam" , score: 10000000, rank:5};
+
+What is the DOM
+	Document is HTML or file as a whole
+	Object is just an item or thing in DOM it is the elements
+	Model is set of agreed upon standard terms that describe how to interact with pieces of 	webpage.  This is the (DOM)
+
+
+Nodes and Elements
+
+	Every web page and document is made of nodes, nodes can represent every part of document
+
+	Only important nodes for JavaScript are element,attribute, and text
+	
+	Element node is the html element tag ie ul, li, p, h1, body etc..
+	Attribute node is the id or class of a element
+	Text node is the text contained inside an element
+
+	Element nodes do not contain text
+
+
+How to get an Element Node
+
+	1:Is it unique?  Does it have an id?
+
+	  a: If so use   document.getElementById("someId");
+
+		element would be retrieved by declaring a variable ie:
+			var myElement = document.getElementById("elementID");
+
+
+	
+	2: If no ID use document.getElementsByTagName ("tag");  This will retrieve all elements with 	   that tag and place them in an array
+
+	       element would be retrieved by declaring variable ie:
+			var myListItems = document.getElementsByTagName ("li");	
+			var myLinks = document.getElementsByTagName ("a");
+
+
+		
+	Once a variable is named it can be searched inside of by replacing document. with variableName.
+		ie
+
+		var myListItems = document.getElementsByTagName ("li");
+		var myFirstList = document.getElementsById("abc");
+
+		var limitedList = myFirstList.getElementsByTagName("li");
+
+			//this will return only the list items inside the id "abc"
+
+
+
+Changing DOM Content
+
+	1:Get Element first, attribute and text belong to the element
+	2:Then we can change it.
+
+	
+	Attributes can be changed once we get the element with the following 2 methods
+
+		myElement.getAttribut("align"); //name of attribute in quotes
+
+		myElement.setAttribute("align","left"); //name first value second  
+			If attribute doesn't exist it will be created.
+
+
+			
+	
+		.innerHTML can be used to grab everything that is entered inside the selected tag.
+
+
+Creating DOM Content
+
+	1: Create the element
+	2: Add it to the document
+
+		var myNewElement = document.createElement("li");
+		myElement.appendChild(myNewElement);
+		myNewElement.innerHTML = "New Item text";//will work to create content inside element 		but is not best practice or most specific
+
+	Best way is to create a text node ie.
+
+		var myText = document.createTextNode ("New list item text");
+		myNewElement.appendChild(myText); 
+
+	New elements can be created by:
+
+	var newHeading = document.createElement("h1");
+	var newParagraph = document.createElement("p");
+
+	//add content by using innerHTML ie:
+	newHeading.innerHTML = "Did you Know?";
+	newParagraph.innerHTML = "California produces over 17 million gallons of wine each year!";
+
+	
+
+	//OR create child nodes manually  this is best way and more specific
+	var h1Tex = document.createTextNode ("Did You Know?");
+	var paraText = document.createTextNode ("California produces over 17 million gallons of wine");
+
+	//and add them as child nodes to the elements
+	newHeading.appendChild(h1Text);
+	newParagraph.appendChild(paraText);
+
+	//and we will still need to attach them to the document!
+	document.getElementById("trivia").appendChild(newHeading);
+	document.getElementById("trivia").appendChild(newParagraph);
+		
+
+	Instead of using appendChild you can use
+		parent.insertBefore(newElement, existingElement);
+
+		Example:
+
+			var myNewElement = document.createElement("li");
+			var secondItem = myElement.getElementByTagName("li")[1];
+			myElement.insertBefore(myNewElement, secondItem);
+
+			//this will place new list item before the second list item
+	
+
+Events and Event Listners
+
+	Event items
+		onload, onclick, onmouseover, onblur, onfocus
+
+	Handling events method 1  this is the worst way, like inline CSS
+		<button onclick="alert('hello,world');">
+			Run some JavaScript
+		</button>
+
+	Handling events method 2 this is an anonymous function because function is
+		element.event = 
+
+		//ie
+
+		myelement.onclick = function () {
+
+			// event handler code
+			// ...
+			// ...
+		};   //semicolon is needed because this is a statement containing a function, not just 			a function
+
+	Handling events method 3 this can add listeners to multiple events, but IE prior to IE 9 		doesn't recognize addEventListener, must use .attachEvent on IE 8 and older
+
+		document.addEventListener('click', myFunction, false);
+
+		Use JQuery or another library instead of writing your own cross-browser code
+
+	window is highest DOM element in JavaScript and window.onload should only be used once per page
+
+
+	
+
+
+onFocus and onBlur Elements
+
+	onFocus is when element is selected
+	onBlur is when	element is left				  
+
+					
+	
+
+Using timers 
+
+	setTimeout(simpleMessage,5000);//settimeout is in milliseconds
+
+	setInterval(changeImage,5000); // also in milliseconds
+	
+	clearTimeout and clearInterval will cancel said functions
+
+
+Getting form and form elements
+
+	document.form.frmName
+
+	
+	Form elements	
+
+		TextFields
+
+			main property
+
+				myTextField.value
+
+			main events
+
+				onfocus     onkeypress
+				onblur	    onkeydown
+				onchange    onkeyup
+
+		Checkboxes and Radio Buttons	
+
+			main property
+				myCheckBox.checked
+					    (true or false)
+
+			main events
+				onclick     onchange
+
+		Select Lists
+	
+			main properties
+				mySelect.type 
+					(select-one or select-multiple)
+				
+				mySelect.selectedIndex
+					(select-one)
+				
+				mySelect.options[x].selected
+					(select-multiple) (true or false)
+				
+
+			main events
+				onchange
+
+		Form Events
+
+			main event
+				onsubmit
+				
+
+
+
+
+CSS
+
+	styling inline
+		myElement.style
+
+	Changing class
+		myElement.className
+
+
+
+	Changing class example
+
+		function preparePage(){
+			document.getElementById("mainContent").onclick= function(){
+				if(document.getElementById("mainContent").className == "example"){
+				   document.getElementById("mainContent").className = "";
+				}else {
+
+				  document.getElementById("mainContent").className = "example";
+				}
+			};
+		}
+
+
+
+
+
+
+
+
+
+
+	
+
+		
+	
+	
+		
+
+		
+
+	
+		 
+		
+
+		
+
+		
+		
+		
+	
+
+	
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	
